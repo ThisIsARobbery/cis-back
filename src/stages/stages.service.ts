@@ -27,7 +27,7 @@ export class StagesService {
     });
   }
 
-  async delete(stageId: string): Promise<any> {
+  async delete(stageId: string): Promise<TStageDocument> {
     return this.stagesModel.findByIdAndDelete(stageId);
   }
 }
