@@ -33,14 +33,14 @@ export class Stage {
   isConditional: boolean;
 
   /** Stage options (if isConditional) */
-  @Prop()
+  @Prop({ default: [], type: [SchemaFactory.createForClass(ConditionOption)] })
   options?: ConditionOption[];
 
   /** Stage priority */
   @Prop({
     enum: ['low', 'medium', 'high'],
   })
-  priority: string; // TODO: add enum
+  priority: string;
 }
 
 /** Stage Schema */
