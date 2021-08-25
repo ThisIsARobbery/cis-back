@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { StagesModule } from './stages/stages.module';
 import { ProjectsModule } from './projects/projects.module';
+import { StageResultsModule } from './stage-results/stage-results.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { ProjectsModule } from './projects/projects.module';
     MongooseModule.forRoot(process.env.MONGO_URI),
     StagesModule,
     ProjectsModule,
+    StageResultsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

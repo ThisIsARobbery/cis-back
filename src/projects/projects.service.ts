@@ -14,7 +14,7 @@ export class ProjectsService {
     return this.projectsModel.find().lean();
   }
 
-  async create(createProjectDto: CreateProjectDto) {
+  async create(createProjectDto: CreateProjectDto): Promise<TProjectDocument> {
     return this.projectsModel.create(createProjectDto);
   }
 

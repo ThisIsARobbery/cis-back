@@ -10,6 +10,10 @@ export class Project {
   /** Project description */
   @Prop()
   description?: string;
+
+  /** Current stage number */
+  @Prop({ required: true })
+  currentStageNumber: number;
 }
 
 /** Project Schema */
