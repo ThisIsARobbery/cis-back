@@ -39,4 +39,11 @@ export class StagesController {
   async delete(@Param('id') stageId: string): Promise<TStageDocument> {
     return this.stagesService.delete(stageId);
   }
+
+  @Post('/next')
+  async getNextStage(
+    @Body() currentIndexDto: { index: number },
+  ): Promise<TStageDocument | null> {
+    return this.stagesService.getNextStage(currentIndexDto.index);
+  }
 }

@@ -47,4 +47,12 @@ export class StageResultsService {
       .populate('project')
       .populate('stage');
   }
+
+  async getProjectStageResult(
+    projectId: string,
+  ): Promise<TStageResultDocument[]> {
+    return this.stageResultModel
+      .find({ 'stage.project': projectId })
+      .populate('stage');
+  }
 }
