@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { FilterQuery, Model } from 'mongoose';
 import {
   CreateStageResultDto,
   UpdateStageResultDto,
@@ -52,7 +52,9 @@ export class StageResultsService {
     projectId: string,
   ): Promise<TStageResultDocument[]> {
     return this.stageResultModel
-      .find({ 'stage.project': projectId })
+      .find({
+        project: projectId,
+      } as FilterQuery<TStageResultDocument>)
       .populate('stage');
   }
 }
