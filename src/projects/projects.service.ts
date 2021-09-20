@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { FilterQuery, Model } from 'mongoose';
+import { StageResult } from '../stage-results/model/stage-result.model';
 import { CreateProjectDto, UpdateProjectDto } from './model/project.dto';
 import { Project, TProjectDocument } from './model/project.model';
 
@@ -8,6 +9,8 @@ import { Project, TProjectDocument } from './model/project.model';
 export class ProjectsService {
   constructor(
     @InjectModel(Project.name) private readonly projectsModel: Model<Project>,
+    @InjectModel(StageResult.name)
+    private readonly stageResultModel: Model<StageResult>,
   ) {}
 
   async findAll(): Promise<TProjectDocument[]> {
@@ -28,6 +31,9 @@ export class ProjectsService {
   }
 
   async delete(projectId: string): Promise<TProjectDocument> {
+    await this.stageResultModel.deleteMany({
+      project: projectId,
+    } as FilterQuery<StageResult>);
     return this.projectsModel.findByIdAndDelete(projectId);
   }
 }
