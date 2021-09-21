@@ -12,7 +12,7 @@ export class Project {
   description?: string;
 
   /** Current stage number */
-  @Prop({ required: true })
+  @Prop({ required: true, default: 0 })
   currentStageNumber: number;
 }
 

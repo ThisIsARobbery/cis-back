@@ -51,4 +51,11 @@ export class StageResultsController {
   ): Promise<TStageResultDocument> {
     return this.stageResultsService.getPopulated(stageResultId);
   }
+
+  @Get('/project/:projectId')
+  async getStageResultsByProject(
+    @Param('projectId') projectId: string,
+  ): Promise<TStageResultDocument[]> {
+    return this.stageResultsService.getProjectStageResult(projectId);
+  }
 }

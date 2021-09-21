@@ -1,15 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
-
-@Schema()
-class ConditionOption {
-  @Prop()
-  name: string;
-
-  @Prop()
-  stageRef: string; // TODO: add ref
-}
-
+import { ConditionOption } from './condition-option.schema';
 @Schema()
 export class Stage {
   /** Stage number */

@@ -30,4 +30,16 @@ export class StagesService {
   async delete(stageId: string): Promise<TStageDocument> {
     return this.stagesModel.findByIdAndDelete(stageId);
   }
+
+  async getNextStage(currentIndex: number): Promise<TStageDocument | null> {
+    const nextStage = await this.stagesModel.findOne({
+      number: currentIndex + 1,
+    });
+    if (!nextStage) return null;
+    return nextStage;
+  }
+
+  async getStageById(stageId: string): Promise<TStageDocument> {
+    return this.stagesModel.findOne({ _id: stageId });
+  }
 }
