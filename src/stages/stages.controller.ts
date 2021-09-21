@@ -46,4 +46,9 @@ export class StagesController {
   ): Promise<TStageDocument | null> {
     return this.stagesService.getNextStage(currentIndexDto.index);
   }
+
+  @Get('/:id')
+  async getStageById(@Param('id') stageId: string): Promise<TStageDocument> {
+    return this.stagesService.getStageById(stageId);
+  }
 }

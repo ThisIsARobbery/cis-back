@@ -35,8 +35,11 @@ export class StagesService {
     const nextStage = await this.stagesModel.findOne({
       number: currentIndex + 1,
     });
-    console.log(nextStage);
     if (!nextStage) return null;
     return nextStage;
+  }
+
+  async getStageById(stageId: string): Promise<TStageDocument> {
+    return this.stagesModel.findOne({ _id: stageId });
   }
 }
