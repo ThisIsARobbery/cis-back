@@ -11,7 +11,7 @@ import { CreateProjectDto, UpdateProjectDto } from './model/project.dto';
 import { TProjectDocument } from './model/project.model';
 import { ProjectsService } from './projects.service';
 
-@Controller('projects')
+@Controller('api/projects')
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 

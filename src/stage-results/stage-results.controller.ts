@@ -14,7 +14,7 @@ import {
 import { TStageResultDocument } from './model/stage-result.model';
 import { StageResultsService } from './stage-results.service';
 
-@Controller('stage_results')
+@Controller('api/stage_results')
 export class StageResultsController {
   constructor(private stageResultsService: StageResultsService) {}
 

@@ -11,7 +11,7 @@ import { CreateStageDto, UpdateStageDto } from './model/stage.dto';
 import { TStageDocument } from './model/stage.model';
 import { StagesService } from './stages.service';
 
-@Controller('stages')
+@Controller('api/stages')
 export class StagesController {
   constructor(private readonly stagesService: StagesService) {}
 
